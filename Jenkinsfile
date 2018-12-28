@@ -15,12 +15,12 @@
 				script: "sed -n \'s/.*\"family\": \"\\(.*\\)\",/\\1/p\' taskdef.json",
 				returnStdout: true
 				).trim()
-			echo "FAMILY: ${FAMILY}"
+			// echo "FAMILY: ${FAMILY}"
 			def NAME= sh (
 				script: "sed -n \'s/.*\"name\": \"\\(.*\\)\",/\\1/p\' taskdef.json",
 				returnStdout: true
 				).trim()
-			echo "NAME: ${NAME}"
+			// echo "NAME: ${NAME}"
 			SERVICE_NAME="${NAME}-service"
 			// def FAMILY= ''
 			// def NAME= ''

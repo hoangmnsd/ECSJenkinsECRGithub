@@ -22,41 +22,9 @@
 				).trim()
 			// echo "NAME: ${NAME}"
 			SERVICE_NAME="${NAME}-service"
-			// def FAMILY= ''
-			// def NAME= ''
 
 	    }
 		stages {
-			// stage('Checkout source') {
-			// 	steps {
-			// 		git(
-			// 		url: 'https://github.com/hoangmnsd/ECSJenkinsECRGithub.git',
-			// 		// credentialsId: 'iac-slave-role-build',
-			// 		branch: 'master'
-			// 		)
-			// 	}
-			// }
-			// stage('Environment set') {
-			// 	steps {
-			// 		script {
-			// 			REGION='us-east-1'
-			// 			REPOSITORY_NAME='hello-world'
-			// 			CLUSTER='getting-started'
-			// 			FAMILY= sh (
-			// 				script: "sed -n \'s/.*\"family\": \"\\(.*\\)\",/\\1/p\' taskdef.json",
-			// 				returnStdout: true
-			// 				).trim()
-			// 			echo "FAMILY: ${FAMILY}"
-			// 			NAME= sh (
-			// 				script: "sed -n \'s/.*\"name\": \"\\(.*\\)\",/\\1/p\' taskdef.json",
-			// 				returnStdout: true
-			// 				).trim()
-			// 			echo "NAME: ${NAME}"
-			// 			SERVICE_NAME="${NAME}-service"
-
-			// 		}
-			// 	}
-			// }
 			stage('Build preparations') {
 	            steps {
 	                script {

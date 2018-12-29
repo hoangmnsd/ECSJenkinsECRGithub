@@ -19,7 +19,7 @@
 				script: "sed -n \'s/.*\"name\": \"\\(.*\\)\",/\\1/p\' taskdef.json",
 				returnStdout: true
 				).trim()
-			SERVICE_NAME="${NAME}-service"
+			SERVICE_NAME="${NAME}-service-name"
 
 	    }
 		stages {

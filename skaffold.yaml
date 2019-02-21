@@ -1,0 +1,30 @@
+apiVersion: skaffold/v1beta2
+kind: Config
+build:
+  artifacts:
+  - image: changeme
+    context: .
+    docker: {}
+  tagPolicy:
+    envTemplate:
+      template: '{{.DOCKER_REGISTRY}}/hoangmnsd/ecsjenkinsecrgithub:{{.VERSION}}'
+  local: {}
+deploy:
+  kubectl: {}
+profiles:
+- name: dev
+  build:
+    artifacts:
+    - docker: {}
+    tagPolicy:
+      envTemplate:
+        template: '{{.DOCKER_REGISTRY}}/hoangmnsd/ecsjenkinsecrgithub:{{.DIGEST_HEX}}'
+    local: {}
+  deploy:
+    helm:
+      releases:
+      - name: ecsjenkinsecrgithub
+        chartPath: charts/ecsjenkinsecrgithub
+        setValueTemplates:
+          image.repository: '{{.DOCKER_REGISTRY}}/hoangmnsd/ecsjenkinsecrgithub'
+          image.tag: '{{.DIGEST_HEX}}'
